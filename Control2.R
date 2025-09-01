@@ -9,7 +9,7 @@ Gasto_M <- c(35,42,50,38,60,55,70,42,48,52,65,40,39,80,45,58,62,47,41,75)
 mean(Gasto_M)
 
 #Respuesta: 52.2 USD/usuario
-#Interpretación: El promedio de los usuarios gastaron unos 52.2 usd en mechardising
+#Interpretación: El promedio de los usuarios gastaron unos 52.2 usd en merchandising
 
 # b) Moda
 mfv(Gasto_M)
