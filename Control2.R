@@ -56,3 +56,27 @@ CV
 
 #Respuesta: CV = 0.2496 o 24,96% 
 #Interpretacion: El desvio estandar (13.032 USD^2) representa el 24.96% de la media de la muestra.
+
+
+#EJERCICIO 2
+
+gastosProm_fans <- c(55,45,50,42,60)
+frecuencia_num_fans <- c(150,120,200,80,100)
+
+promedio_ponderado <- sum(gastosProm_fans*frecuencia_num_fans)/sum(frecuencia_num_fans)
+promedio_ponderado
+
+#Respuesta: 50.785 usd/fan
+#Interpretación: El promedio de gastos por fan es de 50.785 usd.
+
+#EJERCICIO 3
+
+#Parte 1)
+hist(Gasto_M, 
+     col = "blue", 
+     main = "Histograma de los gastos en merchandising por los usuarios.",
+     xlab = "Gastos en Merchandising (USD)",
+     ylab = "Frecuencia absoluta (usuarios)",
+     sub = "Elaboración propia")
+
+#FALTA HACER LA PARTE 2) en el drive
