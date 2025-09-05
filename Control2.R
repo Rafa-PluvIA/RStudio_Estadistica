@@ -79,4 +79,15 @@ hist(Gasto_M,
      ylab = "Frecuencia absoluta (usuarios)",
      sub = "Elaboración propia")
 
-#FALTA HACER LA PARTE 2) en el drive
+#Parte 2 en el drive
+
+#EJERCICIO 4
+boxplot(Gasto_M,
+        col="purple",
+        main = "BoxPlot para los gastos en merchandaising",
+        ylab = "Gasto en $USD",
+        border = "blue",
+        sub = "Elaboración propia"
+        )
+
+#Parte 2 en el drive
