@@ -118,3 +118,17 @@ outliers_edad <- boxplot.stats(EDA_Ecommerce$Edad_Cliente)$out
 outliers_edad #Así es más fácil que ver a ojo con el boxplot
 #Da numeric(0) porque es un vector vacío
 #Lo podemos corroborar con el boxplot, no hay valores atípicos por fuera de los bigotes
+
+#parte 4 
+#boxplots por categoría
+boxplot(EDA_Ecommerce$Monto_Compra ~ EDA_Ecommerce$Categoria_Producto,
+        main = "Monto de compra por categoría de producto",
+        col = c("blue", "purple", "pink"),
+        ylab = "Monto de compra",
+        xlab = "Categoría",
+        sub = "Elaboración Propia")
+
+tiempo_por_region = tapply(EDA_Ecommerce$Tiempo_Entrega, EDA_Ecommerce$Region, mean)
+tiempo_por_region
+desvio_estandar_por_region = tapply(EDA_Ecommerce$Tiempo_Entrega, EDA_Ecommerce$Region, sd)
+desvio_estandar_por_region
