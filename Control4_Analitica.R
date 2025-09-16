@@ -1,7 +1,7 @@
 #Control 4
 
-#> library(readxl)
-#> EDA_Ecommerce <- read_excel("A-Estudio/UCU/Materias/2025/2Semestre2025/Analitica_Datos/Base_Datos/EDA_Ecommerce.xlsx")
+ library(readxl)
+ EDA_Ecommerce <- read_excel("EDA_Ecommerce.xlsx")
 #> View(EDA_Ecommerce)
 
 #3.1
@@ -43,3 +43,78 @@ barplot(frec.absoluta.catProd,
 pie(frec.absoluta.metodoP,
     main="Diagrama de sectores para Metodos de Pagos",
     sub="Elaboración propia // Analitica de Datos 2024")
+
+#3.2
+#Media
+media_monto_compra = mean (EDA_Ecommerce$Monto_Compra)
+media_monto_compra#USD
+
+media_tiempo_entrega = mean(EDA_Ecommerce$Tiempo_Entrega)
+media_tiempo_entrega#DÍAS
+
+media_edad = mean(EDA_Ecommerce$Edad_Cliente)
+media_edad#AÑOS
+
+#Mediana
+mediana_monto_compra <- median(EDA_Ecommerce$Monto_Compra)
+mediana_monto_compra
+
+mediana_tiempo_entrega <- median(EDA_Ecommerce$Tiempo_Entrega)
+mediana_tiempo_entrega
+
+mediana_edad <- median(EDA_Ecommerce$Edad_Cliente)
+mediana_edad
+
+# Rango
+rango_monto_compra <- max(EDA_Ecommerce$Monto_Compra) - min(EDA_Ecommerce$Monto_Compra)
+rango_tiempo_entrega <- max(EDA_Ecommerce$Tiempo_Entrega) - min(EDA_Ecommerce$Tiempo_Entrega)
+rango_edad <- max(EDA_Ecommerce$Edad_Cliente) - min(EDA_Ecommerce$Edad_Cliente)
+
+# Desviación estándar
+desv_monto_compra <- sd(EDA_Ecommerce$Monto_Compra)
+desv_tiempo_entrega <- sd(EDA_Ecommerce$Tiempo_Entrega)
+desv_edad <- sd(EDA_Ecommerce$Edad_Cliente)
+
+# Mostrar resultados
+rango_monto_compra; rango_tiempo_entrega; rango_edad
+desv_monto_compra; desv_tiempo_entrega; desv_edad
+
+#3.2.2 - Histogramas
+hist(EDA_Ecommerce$Monto_Compra,
+     col="skyblue",
+     main="Histograma: Monto de Compra",
+     xlab="Monto (USD)",
+     ylab="Frecuencia",
+     sub = "Elaboración Propia")
+
+hist(EDA_Ecommerce$Tiempo_Entrega,
+     col="lightgreen",
+     main="Histograma: Tiempo de Entrega",
+     xlab="Tiempo (días)",
+     ylab="Frecuencia",
+     sub = "Elaboración Propia")
+
+#3.2.3 - Boxplots
+boxplot(EDA_Ecommerce$Monto_Compra,
+        col="orange",
+        main="Boxplot: Monto de Compra",
+        ylab="Monto (USD)",
+        sub = "Elaboración Propia")
+
+boxplot(EDA_Ecommerce$Tiempo_Entrega,
+        col="purple",
+        main="Boxplot: Tiempo de Entrega",
+        ylab="Tiempo (días)",
+        sub = "Elaboración Propia")
+
+boxplot(EDA_Ecommerce$Edad_Cliente,
+        col="pink",
+        main="Boxplot: Edad de Cliente",
+        ylab="Edad (años)",
+        sub = "Elaboración Propia")
+
+# Detectar valores atípicos en Edad
+outliers_edad <- boxplot.stats(EDA_Ecommerce$Edad_Cliente)$out
+outliers_edad #Así es más fácil que ver a ojo con el boxplot
+#Da numeric(0) porque es un vector vacío
+#Lo podemos corroborar con el boxplot, no hay valores atípicos por fuera de los bigotes

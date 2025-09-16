@@ -82,6 +82,7 @@ hist(Gasto_M,
 #Parte 2 en el drive
 
 #EJERCICIO 4
+Gasto_M
 boxplot(Gasto_M,
         col="purple",
         main = "BoxPlot para los gastos en merchandaising",
@@ -89,5 +90,19 @@ boxplot(Gasto_M,
         border = "blue",
         sub = "Elaboración propia"
         )
+
+Q1 <- quantile(Gasto_M, 0.25)
+Q1
+Q3 <- quantile(Gasto_M, 0.75)
+Q3
+RI <- Q3-Q1
+RI
+
+# Límites para detectar outliers (criterio 1.5 * IQR)
+lim_inf <- as.numeric(Q1) - 1.5 * RI
+lim_inf
+lim_sup <- as.numeric(Q3) + 1.5 * RI
+lim_sup
+#Hacemos esto para saber el valor exacto ya que en el boxplot se ve a ojo
 
 #Parte 2 en el drive
