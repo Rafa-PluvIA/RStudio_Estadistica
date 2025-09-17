@@ -72,6 +72,7 @@ rango_edad <- max(EDA_Ecommerce$Edad_Cliente) - min(EDA_Ecommerce$Edad_Cliente)
 
 # Desviación estándar
 desv_monto_compra <- sd(EDA_Ecommerce$Monto_Compra)
+desv_monto_compra
 desv_tiempo_entrega <- sd(EDA_Ecommerce$Tiempo_Entrega)
 desv_edad <- sd(EDA_Ecommerce$Edad_Cliente)
 
