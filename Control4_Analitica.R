@@ -113,11 +113,17 @@ boxplot(EDA_Ecommerce$Edad_Cliente,
         ylab="Edad (años)",
         sub = "Elaboración Propia")
 
-# Detectar valores atípicos en Edad
+# Detectar valores atípicos en Edad, monto compra y tiempo de entrega
 outliers_edad <- boxplot.stats(EDA_Ecommerce$Edad_Cliente)$out
 outliers_edad #Así es más fácil que ver a ojo con el boxplot
 #Da numeric(0) porque es un vector vacío
 #Lo podemos corroborar con el boxplot, no hay valores atípicos por fuera de los bigotes
+
+outliers_monto_compra <- boxplot.stats(EDA_Ecommerce$Monto_Compra)$out
+outliers_monto_compra
+
+outliers_tiempo_entrega <- boxplot.stats(EDA_Ecommerce$Tiempo_Entrega)$out
+outliers_tiempo_entrega
 
 #parte 4 
 #boxplots por categoría
