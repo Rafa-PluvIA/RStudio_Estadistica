@@ -1,4 +1,6 @@
 #Control 4
+#Paula Adjemian, German Adjemian y Rafael Trujillo
+
 
  library(readxl)
  EDA_Ecommerce <- read_excel("EDA_Ecommerce.xlsx")
