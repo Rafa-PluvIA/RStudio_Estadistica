@@ -1,6 +1,30 @@
 #Paula Adjemian German Adjemian Rafael Trujillo
 
 #Control 5 
+#EJERCICIO 1
+mu_ej1 = 7
+sigma_ej1 = 2.5
+
+#1.1 Grafica la curva normal
+x_ej1 = seq((mu_ej1 - 3*sigma_ej1), (mu_ej1 + 3*sigma_ej1), 0.1)
+y_ej1 = dnorm(x_ej1, mu_ej1, sigma_ej1)
+plot(x_ej1, y_ej1, type = "l", col = "red", lwd = 2.5)
+
+#1.2. ¿Cuál es la probabilidad de que una sesión dure más de 9 minutos? 
+1 - pnorm(9,mu_ej1,sigma_ej1)
+#Respuesta: 0.2118554 o 21.19%
+
+#1.3. ¿Cuál es la probabilidad de que dure menos de 5 minutos? 
+pnorm(5,mu_ej1,sigma_ej1)
+#Respuesta: 0.2118554 o 21.19%
+
+#1.4. ¿Cuál es la probabilidad de que dure entre 6 y 8 minutos? 
+pnorm(8,mu_ej1,sigma_ej1)-pnorm(6,mu_ej1,sigma_ej1)
+#Respuesta: 0.3108435 o 31.08%
+
+#1.5. ¿Qué duración (en minutos) corresponde al percentil 95? 
+qnorm(0.95,mu_ej1,sigma_ej1)
+#Respuesta: 11.11213 minutos
 
 #EJERCICIO 2
 
