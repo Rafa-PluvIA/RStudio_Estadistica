@@ -48,4 +48,57 @@ VCramer_ej1
 # RESPUESTA:
 #Se observa una asociación moderada entre las variables porque VCramer = 0.2285299
 
+#EJERCICIO 3
+
+col1_ej3= c(4207,4917,2807,885,290)
+col2_ej3= c(3459,6850,5258,2094,829)
+col3_ej3= c(1389,5027,4678,2848,1274)
+col4_ej3= c(539,2637,3250,2581,1241)
+col5_ej3= c(367,2668,4074,5379,4188)
+
+TDE_ej3 = cbind(col1_ej3,col2_ej3,col3_ej3,col4_ej3,col5_ej3)
+
+rownames(TDE_ej3)= c("Sin educación media","Educación media","Educación superior inconclusa",
+                     "Educación superior","Maestría o doctorado")
+colnames(TDE_ej3)= c("Menos de 25","25-50","50-75","75-100","100 o más")
+
+addmargins(TDE_ej3)
+
+#PARTE 1
+  
+TDE_Perfil_Total_ej3 =  prop.table(TDE_ej3)*100
+addmargins(TDE_Perfil_Total_ej3) 
+
+# El porcentaje de familias que tienen un jefe de hogar con educación superior
+# e ingresos mayores a $100 mil es de 7.2949441%
+
+#PARTE 2
+
+TDE_Perfil_Fila_ej3 =  prop.table(TDE_ej3, margin=1)*100
+addmargins(TDE_Perfil_Fila_ej3, margin = 2)
+
+# El porcentaje de familias con jefes de hogares de educación media gana 
+# $100 mil o más es de 39.015014%
+
+#PARTE 3
+porcentaje3_ej3 = 11.932667 + 12.072944
+porcentaje3_ej3
+# El porcentaje de familias con jefe de hogar de educación media gana $75 mil
+# o más es de 24.00561%
+
+#PARTE 4
+TDE_Perfil_Columna_ej3 =  prop.table(TDE_ej3, margin=2)*100
+addmargins(TDE_Perfil_Columna_ej3, margin = 1)
+
+# El porcentaje de familias con ingresos entre 50-75 mil tiene jefe de hogar con 
+# nivel educativo de Maestría o Doctorado es de 8.372766%
+
+
+
+
+
+
+
+
+
 
