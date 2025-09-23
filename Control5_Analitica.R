@@ -46,3 +46,6 @@ pnorm(2.6, mu_ej2, sigma_ej2)
 qnorm(0.10, mu_ej2, sigma_ej2)
 #Respuesta: 7.6301 (miles USD)
 
+#EJERCICIO 3
+
+
