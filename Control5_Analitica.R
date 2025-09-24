@@ -12,19 +12,19 @@ plot(x_ej1, y_ej1, type = "l", col = "red", lwd = 2.5)
 
 #1.2. ¿Cuál es la probabilidad de que una sesión dure más de 9 minutos? 
 1 - pnorm(9,mu_ej1,sigma_ej1)
-#Respuesta: 0.2118554 o 21.19%
+#Respuesta: La probabilidad de que una sesión dure más de 9 minutos es de 0.2118554 o 21.19%
 
 #1.3. ¿Cuál es la probabilidad de que dure menos de 5 minutos? 
 pnorm(5,mu_ej1,sigma_ej1)
-#Respuesta: 0.2118554 o 21.19%
+#Respuesta: La probabilidad de que una sesión dure menos de 5 minutos es d 0.2118554 o 21.19%
 
 #1.4. ¿Cuál es la probabilidad de que dure entre 6 y 8 minutos? 
 pnorm(8,mu_ej1,sigma_ej1)-pnorm(6,mu_ej1,sigma_ej1)
-#Respuesta: 0.3108435 o 31.08%
+#Respuesta: La probabilidad de que una sesión dure entre 6 a 8 minutos es d 0.3108435 o 31.08%
 
 #1.5. ¿Qué duración (en minutos) corresponde al percentil 95? 
 qnorm(0.95,mu_ej1,sigma_ej1)
-#Respuesta: 11.11213 minutos
+#Respuesta: Al percentil 95 de la muestra le corresponde 11.11213 minutos o menos
 
 #EJERCICIO 2
 
