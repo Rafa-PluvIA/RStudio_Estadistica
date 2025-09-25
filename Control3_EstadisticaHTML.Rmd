@@ -1,0 +1,103 @@
+---
+title: "Control 3"
+author: "PAULA ADJEMIAN, GERMAN ADJEMIAN Y RAFAEL TRUJILLO - Estadística I"
+date: "25/09/2025"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    highlight: kate
+    code_folding: show
+    
+---
+
+# PRACTICO 4 EJERCICIO 1 SOLUCION
+ 
+*Una consultora en Business Analytics encuestó a 250 jóvenes sobre dos variables de interés: Ç
+- Fandom musical favorito (X): Swifties (Taylor Swift), Arianators (Ariana Grande), BTS Army (BTS), Carpenters (Sabrina Carpenter), Bad Bunnies (Bad Bunny) 
+- Plataforma de streaming preferida: Spotify, Apple Music, YouTube Music. 
+
+Los resultados se resumen en la siguiente tabla:*
+
+```{r}
+col1_ej1= c(50,25,20,15,25)
+col2_ej1= c(30,15,10,10,15)
+col3_ej1= c(10,20,30,15,10)
+
+TDE_ej1 = cbind(col1_ej1,col2_ej1,col3_ej1)
+
+rownames(TDE_ej1)= c("Swifties","Arianators","BTS Army","Carpenters","Bad Bunnies")
+colnames(TDE_ej1)= c("Spotify","Apple Music","Youtube Music")
+
+addmargins(TDE_ej1)
+```
+
+
+## 1.1 Calcula la tabla de porcentajes:  % Perfil Fila.  A partir de la tabla de % Perfil Fila, comenta acerca de la posible asociación entre el fandom y la plataforma favorita. Interpreta las diferencias: ¿qué fandom prefiere más Apple Music?, ¿cuál se inclina a YouTube Music?, ¿cuál a Spotify?   
+
+```{r}
+TDE_Perfil_Fila_ej1 =  prop.table(TDE_ej1, margin=1)*100
+addmargins(TDE_Perfil_Fila_ej1, margin = 2) 
+```
+Comentario: Por un lado Los Swifties (el 55.5556%), los Arianators (el 41.6667%) y los Bad Bunnies (el 50%) parecen preferir Spotify. Mientras que Los BTS Army parecen tener preferencia del 50% por Youtube Music y Los Carpenters tienen ambas principales preferencias del 37,5% por Spotify y Youtube Music.
+
+## 2.2 Si las variables fueran independientes, ¿cuál es el número esperado de Swifties que preferirían Apple Music? ¿Cuál es el número esperado de Carpenters que preferirían Spotify?
+
+```{r}
+chisq.test(TDE_ej1, correct=F)$expected
+```
+
+Comentarios: Asumiendo que las variables fueran independientes
+El número esperado de Swifties que preferirían Apple Music es de 24 fans
+El número esperado de Carpenters que preferirían Spotify es de 18 fans
+
+## 2.3  Calcula el estadístico Chi-Cuadrado. Interpreta su valor en el contexto del ejercicio. 
+
+```{r}
+chi_cuadrado_ej1=chisq.test(TDE_ej1, correct=F)$statistic
+chi_cuadrado_ej1
+```
+
+Comentario: El valor de Chi cuadrado = 31.33556. Esto se interpreta diciendo que las variables de Fandom y Plataformas están asociadas.
+
+## 2.3 Calcula el coeficiente V- Cramer e interpreta el valor en el contexto del ejercicio.  
+
+```{r}
+n_ej1 = 300
+p_ej1 = 2
+VCramer_ej1 = sqrt(chi_cuadrado_ej1/(n_ej1*p_ej1))
+VCramer_ej1
+```
+VCramer = 0.2285299
+Comentario: Esto se interpreta diciendo que las variables Fandom y Plataformas están fuertemente asociadas.
+
+#PRACTICO 4 EJERCICIO 3
+
+*La siguiente tabla de doble entrada nos muestra los ingresos familiares de 73736 hogares del país 
+por nivel educativo del jefe/a de hogar:*
+
+```{r}
+col1_ej3= c(4207,4917,2807,885,290)
+col2_ej3= c(3459,6850,5258,2094,829)
+col3_ej3= c(1389,5027,4678,2848,1274)
+col4_ej3= c(539,2637,3250,2581,1241)
+col5_ej3= c(367,2668,4074,5379,4188)
+
+TDE_ej3 = cbind(col1_ej3,col2_ej3,col3_ej3,col4_ej3,col5_ej3)
+
+rownames(TDE_ej3)= c("Sin educación media","Educación media","Educación superior inconclusa",
+                     "Educación superior","Maestría o doctorado")
+colnames(TDE_ej3)= c("Menos de 25","25-50","50-75","75-100","100 o más")
+
+addmargins(TDE_ej3)
+```
+## 3.1 ¿Qué porcentaje de familias tienen un jefe de hogar con educación superior e ingresos mayores a $100 mil? 
+
+```{r}
+TDE_Perfil_Total_ej3 =  prop.table(TDE_ej3)*100
+addmargins(TDE_Perfil_Total_ej3) 
+```
+Comentario: El porcentaje de familias que tienen un jefe de hogar con educación superior e ingresos mayores a $100 mil es de 7.2949441%
