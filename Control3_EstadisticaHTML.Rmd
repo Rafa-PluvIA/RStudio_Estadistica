@@ -101,3 +101,30 @@ TDE_Perfil_Total_ej3 =  prop.table(TDE_ej3)*100
 addmargins(TDE_Perfil_Total_ej3) 
 ```
 Comentario: El porcentaje de familias que tienen un jefe de hogar con educación superior e ingresos mayores a $100 mil es de 7.2949441%
+
+## 3.2 ¿Qué porcentaje de familias con jefes de hogares de educación media gana $100 mil o más?
+
+```{r}
+TDE_Perfil_Fila_ej3 =  prop.table(TDE_ej3, margin=1)*100
+addmargins(TDE_Perfil_Fila_ej3, margin = 2)
+```
+
+Comentario: El porcentaje de familias con jefes de hogares de educación media gana $100 mil o más es de 39.015014%
+
+## 3.3 ¿Qué porcentaje de familias con jefe de hogar de educación media gana $75 mil o más? 
+
+```{r}
+porcentaje3_ej3 = 11.932667 + 12.072944
+porcentaje3_ej3
+```
+
+Comentario: El porcentaje de familias con jefe de hogar de educación media gana $75 mil o más es de 24.00561%
+
+## 3.4 ¿Qué porcentaje de familias con ingresos entre 50-75 mil tiene jefe de hogar con nivel educativo de Maestría o Doctorado?
+
+```{r}
+TDE_Perfil_Columna_ej3 =  prop.table(TDE_ej3, margin=2)*100
+addmargins(TDE_Perfil_Columna_ej3, margin = 1)
+```
+
+Comentario: El porcentaje de familias con ingresos entre 50-75 mil tiene jefe de hogar con nivel educativo de Maestría o Doctorado es de 8.372766%
