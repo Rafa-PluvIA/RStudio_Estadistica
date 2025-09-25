@@ -47,5 +47,52 @@ qnorm(0.10, mu_ej2, sigma_ej2)
 #Respuesta: 7.6301 (miles USD)
 
 #EJERCICIO 3
+mu_ChatBot <- 4.5
+sigma_ChatBot <- 1.1
+
+mu_CallCenter <- 6.2
+sigma_CallCenter <- 2.3
+
+#3.1. ¿Cuál es la probabilidad de recibir una respuesta en menos de 4 minutos en cada canal? 
+#¿Cuál canal es más eficiente según esa medida? 
+
+#ChatBot
+pnorm(4, mu_ChatBot, sigma_ChatBot)
+
+#CallCenter
+pnorm(4, mu_CallCenter, sigma_CallCenter)
+
+#Respuesta: La probabilidad de recibir una respuesta en menos de 4 minutos en el chatbot es
+# de 0.3247181 mientras que en el call center es de 0.1694044, por lo que según esta medida
+#es más eficiente el chat bot (es más probable que responda más rápido, por ende más eficiente)
+
+#3.2. ¿Cuál es la probabilidad de que el tiempo de respuesta sea mayor a 5 minutos en cada canal? 
+
+#ChatBot
+1-pnorm(5, mu_ChatBot, sigma_ChatBot)
+
+#CallCenter
+1-pnorm(5, mu_CallCenter, sigma_CallCenter)
+
+#Respuesta: Para el chatbot la probabilidad de que el tiempo de respuesta sea mayor a 5 minutos es de 0.3247181
+# Para el call center la probabilidad de que el tiempo de respuesta sea mayor a 5 minutos es de 0.699074
+
+#3.4. Si la empresa fija como objetivo prometer un tiempo máximo igual al percentil 75 de cada canal
+#¿qué significa eso operativamente? 
+#¿Cuáles son esos tiempos para ambos canales? 
+
+#Tiempo chatbot
+qnorm(0.75, mu_ChatBot,sigma_ChatBot)
+
+#Tiempo call center
+qnorm(0.75, mu_CallCenter, sigma_CallCenter)
+
+#Respuesta: Operativamente, prometer un tiempo máximo igual al percentil 75 significa comprometerse con un estándar de servicio tal
+#que, en el 75% de los casos, el cliente recibirá la respuesta en un tiempo igual o inferior a ese valor.
+#Es decir, solo en el 25% de los casos la respuesta demorará más que dicho tiempo. 
+#Esto fija una expectativa clara hacia los clientes y un objetivo interno para medir la eficiencia (es como establecer/definir una calidad de servicio).
 
 
+#En este caso:
+  # Para el chatbot, el 75% de las consultas se resuelven en ≤5.241939 minutos
+  # Para el call center, el 75% se resuelven en ≤ 7.751326 minutos
