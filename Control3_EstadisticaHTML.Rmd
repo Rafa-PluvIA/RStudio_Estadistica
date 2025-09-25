@@ -128,3 +128,39 @@ addmargins(TDE_Perfil_Columna_ej3, margin = 1)
 ```
 
 Comentario: El porcentaje de familias con ingresos entre 50-75 mil tiene jefe de hogar con nivel educativo de Maestría o Doctorado es de 8.372766%
+
+#PRACTICO 4 EJERCICIO 4
+
+*Se realizó un estudio con el objetivo de determinar si existe asociación entre la red social preferida (Facebook, Instagram, LinkedIn) y el nivel educativo de las personas (Primario, Secundario, Terciario). 
+La siguiente tabla de doble entrada resume los datos recogidos en una muestra de uruguayos:*
+
+```{r}
+col1_ej2= c(145,107,91)
+col2_ej2= c(298,367,215)
+col3_ej2= c(67,86,138)
+
+TDE_ej2 = cbind(col1_ej2,col2_ej2,col3_ej2)
+
+rownames(TDE_ej2)= c("Primario","Secundario","Terciario")
+colnames(TDE_ej2)= c("Facebook","Instagram","LinkedIn")
+
+addmargins(TDE_ej2)
+```
+
+## 4.1 Calcula la tabla de porcentajes:  % Perfil Fila.  A partir de la tabla de % Perfil Fila, comenta acerca de la posible asociación entre la red social preferida y el nivel educativo de las personas. 
+
+```{r}
+TDE_Perfil_Fila_ej2 =  prop.table(TDE_ej2, margin=1)*100
+addmargins(TDE_Perfil_Fila_ej2, margin = 2) 
+```
+Comentario: En todos los niveles de educación de las personas la red social preferida es Instagram, con valores en primario de 58.43137%, secundario 65.53571% y terciario 48.42342%. Mientras que con LinkedIn se ve un claro incremento en a medida que aumenta el nivel de eduación, llegando al valor de 31.08108%.
+
+## 4.2 Calcula el valor de Chi-cuadrado 𝜒2.  Interpreta el valor obtenido en el contexto del ejercicio.
+
+```{r}
+chisq.test(TDE_ej2, correct=F)$expected
+chi_cuadrado_ej2=chisq.test(TDE_ej2, correct=F)$statistic
+chi_cuadrado_ej2
+```
+Comentario: El valor de Chi cuadrado = 70.68928. Esto se interpreta diciendo que las variables de nivel educativo y red social están asociadas.
+
