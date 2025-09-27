@@ -44,6 +44,7 @@ addmargins(TDE_Perfil_Fila_ej1, margin = 2)
 ```
 Comentario: Por un lado Los Swifties (el 55.5556%), los Arianators (el 41.6667%) y los Bad Bunnies (el 50%) parecen preferir Spotify. Mientras que Los BTS Army parecen tener preferencia del 50% por Youtube Music y Los Carpenters tienen ambas principales preferencias del 37,5% por Spotify y Youtube Music.
 
+
 ## 2.2 Si las variables fueran independientes, ¿cuál es el número esperado de Swifties que preferirían Apple Music? ¿Cuál es el número esperado de Carpenters que preferirían Spotify?
 
 ```{r}
@@ -163,4 +164,24 @@ chi_cuadrado_ej2=chisq.test(TDE_ej2, correct=F)$statistic
 chi_cuadrado_ej2
 ```
 Comentario: El valor de Chi cuadrado = 70.68928. Esto se interpreta diciendo que las variables de nivel educativo y red social están asociadas.
+
+
+##4.3 Frecuencia esperada de personas con educación Terciario y preferencia LinkedIn
+```{r}
+round(chisq.test(TDE_ej2, correct=F)$expected["Terciario","LinkedIn"],2)
+
+```
+Comentario: La frecuencia esperada de personas con nivel educativo Terciario que prefieren LinkedIn, bajo la hipótesis de independencia, es de 85.34 aproximadamente. Como el valor observado fue 138, se ve una diferencia importante que apoya la existencia de asociación.
+
+##4.4 Calcular el coeficiente de V-Cramer
+```{r}
+chi_cuadrado_ej4 = chisq.test(TDE_ej2, correct=F)$statistic
+n_ej4 = sum(TDE_ej2)
+p_ej4 = min(nrow(TDE_ej2)-1, ncol(TDE_ej2)-1)
+VCramer_ej4 = sqrt(chi_cuadrado_ej4/(n_ej4*p_ej4))
+VCramer_ej4
+
+```
+Comentario: El valor de V de Cramer = 0.153. Esto se interpreta como una asociación débil entre el nivel educativo y la red social preferida.
+
 
