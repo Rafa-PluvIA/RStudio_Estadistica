@@ -14,20 +14,67 @@ output:
     
 ---
 
-# EJEMPLO 1
+# EJERCICIO 1 PRACTICO 5
 
-Vamos a resolver el EJERCICIO 1 HACIENDO U DIAGRAMA DE DISPERSIÓN.
+¿El interés del público (medido por las búsquedas de “Bitcoin” en Google) puede ayudar a 
+predecir el precio del BTC? 
+
+Un equipo de analistas financieros está explorando si el interés público por el Bitcoin, medido a través del volumen de búsquedas en Google, tiene relación con el precio de esta criptomoneda. El objetivo es usar herramientas estadísticas para examinar si existe una relación entre el volumen de búsqueda del término “Bitcoin” en Google Trends (índice de 0 a 100) y el precio mensual promedio en los últimos 24 meses. 
+
+Las variables de estudio son:  
+• Volumen de búsqueda del término “Bitcoin” en Google Trends (índice de 0 a 100). 
+• Precio promedio mensual del Bitcoin (miles de USD) en los últimos 24 meses. 
 
 ```{r}
-Xsuperficie = c(40,50,50,60,70,80,100)
-Yprecio = c(12,15,13,15,16,20,21)
-
-plot(Xsuperficie, Yprecio,
-     col="blue",
-     main="precios según superficies",
-     sub="Elaboración propia",
-     xlab="Superficie en m2",
-     ylab="Precios en miles $"
-     )
+library(readxl)
+datos = read_excel("C:/Users/r1210/OneDrive/Documents/A-Estudio/UCU/Materias/2025/2Semestre2025/Estadistica1/Base_Datos/Google_Bitcoin.xlsx")
 
 ```
+
+## 1.1 Representa los datos en un diagrama de dispersión para visualizar la relación entre el volumen de búsquedas en Google y el precio del Bitcoin.
+```{r}
+plot(datos$Trends, datos$Precio_BTC,
+     col="red",
+     main="Busquedas de Bitcoin en Google y precio promedio mensual de la criptomoneda",
+     xlab="Volumen de busquedad en Google Trends (índice de 0 a 100)",
+     ylab="Precio promedio mensual en miles de USD")
+```
+INTERPRETACIÓN: En el diagrama de dispersión se observa, una relación lineal y directa entre el volumen de búsqueda y el precio promedio mensual.
+En el rango de valores del estudio, a medida que aumentan el volumen de búsqueda se observa un aumento en el precio promedio mensual.
+
+##1.2 Reporta e interpreta la covarianza entre el volumen de búsquedas y el precio del Bitcoin. 
+
+```{r}
+cov(datos$Trends,datos$Precio_BTC)
+```
+
+La COVARIANZA FUE DE 686436.3 (miles USD*índice de búsqueda)
+INTERPRETACIÓN:  Sxy= 686436.3 > 0 -> relación lineal y directa entre el volumen de búsqueda y precio del Bitcoin.
+
+##1.3 Reporta e interpreta el coeficiente de correlación lineal entre el volumen de búsquedas y el precio del Bitcoin.  
+
+```{r}
+cor(datos$Trends,datos$Precio_BTC)
+```
+
+Coef. de Person dio 0.9842251
+INTERPRETACIÓN: Es una relación lineal directa y fuerte entre el volumen de búsquedas y el precio precio del Bitcoin.
+
+##1.4 Reporta el modelo de regresión lineal que permite predecir el precio del Bitcoin en función del volumen de búsquedas en Google. 
+```{r}
+modelo_Bitcoin = lm(datos$Precio_BTC~datos$Trends)
+modelo_Bitcoin
+```
+INTERPRETACIÓN:
+  b: 1523. En promedio, el precio del Bitcoin aumenta en U$S 1527 por cada incremento de 1 punto del índice de búsqueda que aumenta según el volumen de búsqueda en Google Trends. 
+  a: -28417. En promedio, se espera que el precio del Bitcoin sea de U$S -28417 cuando CONSULTAR A ROBERTO 
+```{r}
+plot(datos$Trends, datos$Precio_BTC,
+     col="red",
+     main="Busquedas de Bitcoin en Google y precio promedio mensual de la criptomoneda",
+     xlab="Volumen de busquedad en Google Trends (índice de 0 a 100)",
+     ylab="Precio promedio mensual en miles de USD")
+
+abline(modelo_Bitcoin)
+```
+
