@@ -97,3 +97,91 @@ Interpretación:
 -28417+1523*(90)
 ```
 INTERPRETACIÓN: Si el indice de volumen de búsqueda de Bitcoin es de 90, el precio de la cripto moneda será de 108653 USD
+
+
+# EJERCICIO 2 PRÁCTICO 5
+
+
+# EJERCICIO 3 PRÁCTICO 5
+## 2.1
+```{r}
+Punto_venta <- seq(1, 7)
+Precio <- seq(5,11)
+Demanda <- c(200, 185, 179, 151, 120, 105, 80)
+
+plot(Precio, Demanda,
+     main = "Relación PRECIO-DEMANDA",
+     sub = "Elaboración Propia",
+     xlab = "Precio del Producto",
+     ylab = "Demanda del producto")
+abline(lm(Demanda ~ Precio), col = "red", lwd = 2)
+```
+Interpretación: En el diagrama de dispersión, se puede observar una tendencia descendente clara en la demanda a medida que los precios aumentan. La línea roja trazada y ajustada en base al modelo de regresión lineal (lineal model). Por ende, al visualizar la gráfica se observa una relación lineal negativa (auque no sabemos aún si es fuerte, moderada o débil).
+
+##3.2
+```{r}
+cov(Precio, Demanda)
+```
+#Interpretación: Cuando los precios aumentan la demanda tiende a disminuir y viceversa.
+
+##3.3
+```{r}
+cor(Precio, Demanda)
+```
+#Interpretación: La correlación es de -0.9880834, este valor define la fuerza de la asociación lineal entre las variables Precio y Demanda, en este caso al estar comprendido entre -0.70 y -1.0 indica una asociación fuerte, casi perfecta.
+
+##3.4
+```{r}
+modelo <- lm(Demanda ~ Precio)
+summary(modelo)
+```
+El intercepto es 311.143 y la pendiente -20.679.
+Por ende la ecuación para el modelo es:
+311.143 - 20.679 * Precio 
+(Intercepto - Pendiente * Variable Independiente)
+
+##3.5
+Interpretación:
+
+Intercepto
+Si el producto tuviera un precio de $0 (hipotéticamente),
+la empresa podría vender aproximadamente 311 unidades.Este valor nos da
+el punto de inicio de la línea de predicción.
+
+Pendiente
+Por cada aumento de $1 en el precio, la demanda disminuye
+en promedio 20.68 unidades. Esto refleja la relación negativa
+entre precio y demanda: a mayor precio, menor cantidad vendida.
+
+Conclusión
+Ambos coeficientes son altamente significativos, por
+lo que el precio es un buen indicador y predictor de la demanda.
+
+##3.6
+```{r}
+cor(Precio, Demanda)^2
+```
+Interpretación: El coeficiente de determinación R2, mide qué tan bien
+se ajusta a los datos la ecuación de regresión. En este caso es 0.976
+o 97.6% (podemos confirmar esto con el resumen del modelo que vimos
+antes,Multiple R-squared:  0.9763).
+
+Esto quiere decir que aproximadamente el 97.6% de la variabilidad de la
+demanda se explica por los cambios en el precio del producto, lo que
+significa que el modelo es muy bueno para predecir la demanda según el precio.
+
+##3.7
+```{r}
+311.143 - 20.679 * 8
+```
+Si  el precio se fija en 8, la demanda sería de 145.711 ≈ 146 según este modelo.
+
+##3.8
+```{r}
+observado <- 151
+predict <- 311.143 - 20.679 * 8
+residual <- observado - predict
+residual
+
+```
+
