@@ -213,7 +213,7 @@ Por ende la ecuación para el modelo es:
 311.143 - 20.679 * Precio 
 (Intercepto - Pendiente * Variable Independiente)
 
-##3.5
+## 3.5
 Interpretación:
 
 Intercepto
@@ -230,7 +230,7 @@ Conclusión
 Ambos coeficientes son altamente significativos, por
 lo que el precio es un buen indicador y predictor de la demanda.
 
-##3.6
+## 3.6
 ```{r}
 cor(Precio, Demanda)^2
 ```
@@ -243,13 +243,13 @@ Esto quiere decir que aproximadamente el 97.6% de la variabilidad de la
 demanda se explica por los cambios en el precio del producto, lo que
 significa que el modelo es muy bueno para predecir la demanda según el precio.
 
-##3.7
+## 3.7
 ```{r}
 311.143 - 20.679 * 8
 ```
 Si  el precio se fija en 8, la demanda sería de 145.711 ≈ 146 según este modelo.
 
-##3.8
+## 3.8
 ```{r}
 observado <- 151
 predict <- 311.143 - 20.679 * 8
@@ -257,4 +257,6 @@ residual <- observado - predict
 residual
 
 ```
-
+El residual dio 5.289
+Interpretación:
+El modelo subestimó el valor real, es decir, la predicción fue 5.289 menor al valor observado.
