@@ -16,9 +16,30 @@ output:
 
 # PRACTICO 7 EJERCICIO 1
 
-Vamos a resolver el EJERCICIO 1 haciendo un diagrama de dispersión.
+Una empresa de comercio electrónico vende productos de tecnología mediante su tienda online. La 
+gerencia de marketing digital desea entender cómo la inversión mensual en publicidad en redes 
+sociales (Facebook , TikTok , Instagram, X) influye en las ventas mensuales. 
+
+Las variables recolectadas son: 
+• Mes: mes en el que se registraron la inversión en publicidad y las ventas 
+• RRSS: inversión en publicidad en Facebook, TikTok, Instagram y X, en dólares. 
+• Ventas: ventas registradas, en miles de dólares 
 
 ```{r}
-#meter el archivo excel
-
+library(readxl)
+datos = read_excel("ecommerce.xlsx")
 ```
+
+##a) Reportar y comentar el diagrama de dispersión.
+
+```{r}
+plot(datos$RRSS, datos$Ventas,
+     col="red",
+     main="Ventas mensuales según gastos en publicidad",
+     xlab="Inversion en publicidad (USD)",
+     ylab="Ventas en miles de USD")
+```
+Se observa una relación lineal y directa entre los gastos en publicidad y el 
+volumen de ventas. 
+En el rango de valores del estudio son de 2000 a 6100 usd en inversión en publicidad y las ventas de 5800 a 16600 usd. Además a medida que aumentan los gastos en 
+publicidad se observa un aumento en las ventas.
