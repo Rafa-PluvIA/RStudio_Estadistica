@@ -97,3 +97,166 @@ Interpretación:
 -28417+1523*(90)
 ```
 INTERPRETACIÓN: Si el indice de volumen de búsqueda de Bitcoin es de 90, el precio de la cripto moneda será de 108653 USD
+
+
+# EJERCICIO 2 PRÁCTICO 5
+## 2.1
+```{r}
+dia = seq(1,10)
+likes = c(150,200,250,300,350,400,450,500,550,600)
+ventas_diarias = c(25,30,35,45,50,55,63,72,79,95)
+
+plot(likes,ventas_diarias,
+     main="Relación entre likes y ventas diarias",
+     sub = "Elaboración Propia",
+     ylab = "Ventas diarias (miles de dólares)",
+     xlab = "Cantidad de likes diarios"
+     )
+abline(lm(ventas_diarias ~ likes ), col = "red", lwd = 2)
+```
+Interpretación: 
+En el diagrama de dispersión, podemos observar una tendencia ascendemnte en las ventas a medida que aumentan los likes en las publicaciones de redes sociales.
+
+## 2.2
+```{r}
+cov(likes,ventas_diarias )
+```
+La covarianza fue de 3380.556 likes por miles de dólares
+Interpretación: como la covarianza fue mayor a cero, podemos decir que se observa un arelación lineal y directa entre las dos variables. Lo cual significa, que si aumentan los likes, las ventas tenderán a aumentar.
+
+## 2.3
+
+```{r}
+cor(ventas_diarias,likes)
+```
+La correlación lineal de Pearson fue 0.9900407. Por ende, podemos interpretar ese resultado como relación lineal fuerte.
+
+## 2.4
+```{r}
+modelo_2 = lm(ventas_diarias ~ likes )
+summary(modelo_2)
+```
+El intercepto es -0.418182 y la pendiente 0.147515. Por ende la ecuación para el modelo es:
+-0.418182 + 0.147515 * Ventas_diarias 
+
+## 2.5
+
+El intercepto nos dice que si no hubieran likes las ventas serían de -0.418182 miles de dólares, lo cual, es imposible en la vida real tener ventas negativas.
+
+La pendiente nos dice cuanto aumentan las ventas diarias por cada like, en este caso, 0.147515 miles de dólares.
+
+# 2.6
+
+```{r}
+cor(ventas_diarias,likes)^2
+```
+Interpretación: El coeficiente de determinación R2, mide qué tan bien se ajusta a los datos la ecuación de regresión. En este caso es 0.9801805 o 98.02%.
+
+Lo cual quiere decir que aproximadamente el 98.02% de la variabilidad de la demanda se explica por los cambios en el likes en la publicación de la red social, lo que
+significa que el modelo es muy bueno para predecir la demanda según los likes.
+
+## 2.7
+
+```{r}
+-0.418182 + 0.147515 * 490
+```
+Si la publicación tiene 490 likes el modelo predice 71.86417 ≈ 72 ventas diarias. 
+
+## 2.8
+
+```{r}
+observado_ej2 = 79
+predict_ej2 = -0.418182 + 0.147515 * 550
+residual_ej2 = observado_ej2 - predict_ej2
+residual_ej2
+```
+El residual dio -1.715068.
+Interpretación:
+El modelo sobreestimó el valor real, es decir, la predicción fue 1.715068 mayor al valor observado.
+
+
+# EJERCICIO 3 PRÁCTICO 5
+## 3.1
+```{r}
+Punto_venta <- seq(1, 7)
+Precio <- seq(5,11)
+Demanda <- c(200, 185, 179, 151, 120, 105, 80)
+
+plot(Precio, Demanda,
+     main = "Relación PRECIO-DEMANDA",
+     sub = "Elaboración Propia",
+     xlab = "Precio del Producto",
+     ylab = "Demanda del producto")
+abline(lm(Demanda ~ Precio), col = "red", lwd = 2)
+```
+Interpretación: En el diagrama de dispersión, se puede observar una tendencia descendente clara en la demanda a medida que los precios aumentan. La línea roja trazada y ajustada en base al modelo de regresión lineal (lineal model). Por ende, al visualizar la gráfica se observa una relación lineal negativa (auque no sabemos aún si es fuerte, moderada o débil).
+
+##3.2
+```{r}
+cov(Precio, Demanda)
+```
+#Interpretación: Cuando los precios aumentan la demanda tiende a disminuir y viceversa.
+
+##3.3
+```{r}
+cor(Precio, Demanda)
+```
+#Interpretación: La correlación es de -0.9880834, este valor define la fuerza de la asociación lineal entre las variables Precio y Demanda, en este caso al estar comprendido entre -0.70 y -1.0 indica una asociación fuerte, casi perfecta.
+
+##3.4
+```{r}
+modelo <- lm(Demanda ~ Precio)
+summary(modelo)
+```
+El intercepto es 311.143 y la pendiente -20.679.
+Por ende la ecuación para el modelo es:
+311.143 - 20.679 * Precio 
+(Intercepto - Pendiente * Variable Independiente)
+
+## 3.5
+Interpretación:
+
+Intercepto
+Si el producto tuviera un precio de $0 (hipotéticamente),
+la empresa podría vender aproximadamente 311 unidades.Este valor nos da
+el punto de inicio de la línea de predicción.
+
+Pendiente
+Por cada aumento de $1 en el precio, la demanda disminuye
+en promedio 20.68 unidades. Esto refleja la relación negativa
+entre precio y demanda: a mayor precio, menor cantidad vendida.
+
+Conclusión
+Ambos coeficientes son altamente significativos, por
+lo que el precio es un buen indicador y predictor de la demanda.
+
+## 3.6
+```{r}
+cor(Precio, Demanda)^2
+```
+Interpretación: El coeficiente de determinación R2, mide qué tan bien
+se ajusta a los datos la ecuación de regresión. En este caso es 0.976
+o 97.6% (podemos confirmar esto con el resumen del modelo que vimos
+antes,Multiple R-squared:  0.9763).
+
+Esto quiere decir que aproximadamente el 97.6% de la variabilidad de la
+demanda se explica por los cambios en el precio del producto, lo que
+significa que el modelo es muy bueno para predecir la demanda según el precio.
+
+## 3.7
+```{r}
+311.143 - 20.679 * 8
+```
+Si  el precio se fija en 8, la demanda sería de 145.711 ≈ 146 según este modelo.
+
+## 3.8
+```{r}
+observado <- 151
+predict <- 311.143 - 20.679 * 8
+residual <- observado - predict
+residual
+
+```
+El residual dio 5.289
+Interpretación:
+El modelo subestimó el valor real, es decir, la predicción fue 5.289 menor al valor observado.
