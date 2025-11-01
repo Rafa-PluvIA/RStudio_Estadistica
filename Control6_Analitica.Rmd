@@ -41,5 +41,23 @@ plot(datos$RRSS, datos$Ventas,
 ```
 Se observa una relación lineal y directa entre los gastos en publicidad y el 
 volumen de ventas. 
-En el rango de valores del estudio son de 2000 a 6100 usd en inversión en publicidad y las ventas de 5800 a 16600 usd. Además a medida que aumentan los gastos en 
-publicidad se observa un aumento en las ventas.
+En el rango de valores del estudio son de 2000 a 6100 usd en inversión en publicidad y las ventas de 5800 a 16600 usd. Además a medida que aumentan los gastos en publicidad se observa un aumento en las ventas.
+
+## b) Reportar y comentar el coeficiente de correlación lineal que asocia las ventas y la inversión en publicidad en las redes. 
+
+```{r}
+cor(datos$RRSS,datos$Ventas)
+```
+Coef. de Person dio 0.8436
+Interpretación: Se observa una relación lineal directa y fuerte entre los gastos en inversión en publicidad y las ventas de tecnología.
+
+##c) Reportar la ecuación del modelo de regresión lineal. El modelo debe ser entrenado con el 75% de los datos recolectados. INCOMPLETO
+
+```{r}
+modelo=lm(datos$Ventas~datos$RRSS)
+modelo
+```
+  b: 0.002284. En promedio, las ventas aumenta en U$S 2.284 por cada U$S 1000 que aumenta la inversión en publicidad de la empresa. 
+  a: 0.80599. En promedio, se espera que las ventas sea de U$S 805.99 cuando no se realiza inversión en publicidad (Publicidad = 0)
+  
+
