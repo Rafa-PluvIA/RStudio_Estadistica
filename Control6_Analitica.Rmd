@@ -54,10 +54,34 @@ Interpretación: Se observa una relación lineal directa y fuerte entre los gast
 ##c) Reportar la ecuación del modelo de regresión lineal. El modelo debe ser entrenado con el 75% de los datos recolectados. INCOMPLETO
 
 ```{r}
-modelo=lm(datos$Ventas~datos$RRSS)
-modelo
-```
-  b: 0.002284. En promedio, las ventas aumenta en U$S 2.284 por cada U$S 1000 que aumenta la inversión en publicidad de la empresa. 
-  a: 0.80599. En promedio, se espera que las ventas sea de U$S 805.99 cuando no se realiza inversión en publicidad (Publicidad = 0)
-  
+set.seed(4987654)
 
+train = sample(nrow(datos),nrow(datos)*0.70) 
+
+test  =(-train)
+
+modelo=lm(datos$Ventas~datos$RRSS, data= datos, subset=train)
+modelo
+
+reg = modelo
+```
+  b: 0.002333. 
+  Interpretación: En promedio, las ventas aumenta en U$S 2.333 por cada U$S 1000 que aumenta la inversión en publicidad de la empresa. 
+  a: 0.775114. 
+  Interpretación: En promedio, se espera que las ventas sea de U$S 775.11 cuando no se realiza inversión en publicidad (Publicidad = 0)
+  
+## d) Probar la hipótesis de la significación de la regresión lineal. 
+
+```{r}
+summary(reg) 
+```
+
+  Ho = 0  y H1 != 0 
+  Comparamos con el alpha (nivel de significación 5%) 
+
+  Se realiza la decision de las hipotesis. En este caso la decision fue: Rechazar Ho (p-value=1.01e-9) y aceptamos H1
+  Conclusión: "Basándonos en la evidencia de una muestra de entrenamiento de n=33 clientes de la tienda online podemos concluir con un nivel de significación del 5%. (Nivel de confianza de 95%) que hay una relación lineal significativa entre las Ventas y la variable inversion en publicidad (RECHAZAMOS Ho)"
+  
+##e) Interpretar la pendiente de la ecuación del modelo de regresión lineal en el contexto del problema. 
+
+MIRAR MÁS ARRIBA QUE CREO QUE YA LA INTERPRETE.
