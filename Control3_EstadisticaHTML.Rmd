@@ -40,6 +40,7 @@ addmargins(TDE_ej1)
 
 ```{r}
 TDE_Perfil_Fila_ej1 =  prop.table(TDE_ej1, margin=1)*100
+
 addmargins(TDE_Perfil_Fila_ej1, margin = 2) 
 ```
 Comentario: Por un lado Los Swifties (el 55.5556%), los Arianators (el 41.6667%) y los Bad Bunnies (el 50%) parecen preferir Spotify. Mientras que Los BTS Army parecen tener preferencia del 50% por Youtube Music y Los Carpenters tienen ambas principales preferencias del 37,5% por Spotify y Youtube Music.

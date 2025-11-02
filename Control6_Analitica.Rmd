@@ -46,6 +46,7 @@ En el rango de valores del estudio son de 2000 a 6100 usd en inversión en publi
 ## b) Reportar y comentar el coeficiente de correlación lineal que asocia las ventas y la inversión en publicidad en las redes. 
 
 ```{r}
+cov(datos$RRSS, datos$Ventas) #para verificar que hay asociación
 cor(datos$RRSS,datos$Ventas)
 ```
 Coef. de Person dio 0.8436
@@ -62,6 +63,12 @@ test  =(-train)
 
 modelo=lm(datos$Ventas~datos$RRSS, data= datos, subset=train)
 modelo
+plot(datos$RRSS, datos$Ventas,
+     col="red",
+     main="Ventas mensuales según gastos en publicidad",
+     xlab="Inversion en publicidad (USD)",
+     ylab="Ventas en miles de USD")
+abline(modelo)
 
 reg = modelo
 ```
@@ -85,3 +92,65 @@ summary(reg)
 ##e) Interpretar la pendiente de la ecuación del modelo de regresión lineal en el contexto del problema. 
 
 MIRAR MÁS ARRIBA QUE CREO QUE YA LA INTERPRETE.
+
+
+PARA MI SI, ESTA YA INTERPRETADA
+
+##f) Determinar la bondad de las predicciones en el entrenamiento a través del cálculo del 
+RCME y R2. Interpretar los resultados obtenidos.
+
+```{r}
+# Creo un vector que contiene las predicciones para la muestra train
+
+pred  = predict(reg,newdata=datos[train,])
+
+# Calculo el CME Cuadrado medio del error 
+CME.train  = mean((pred-datos$Ventas[train])^2)
+CME.train
+
+# Calculo el RCME Raiz Cuadrada del Error Cuadratico Medio 
+RCME.train  = sqrt(CME.train)
+RCME.train
+R2 = cor(datos$RRSS,datos$Ventas)^2
+R2
+```
+El RCME (Raíz del Cuadrado Medio del Error) del entrenamiento es de 3.85 miles de USD, lo que indica que, en promedio, las predicciones del modelo se desvían 3.85 mil dólares de las ventas reales.
+Por otra parte, el R2 es aproximadamente 0.71, lo que muestra que el 71% de la variabilidad de las ventas se explica por la inversión en publicidad.
+
+
+
+##g) Determinar la calidad de las predicciones en testing a través del cálculo del RCME. 
+Interpretar el resultado. ¿Hubo sobreajuste? Justificar la respuesta
+
+```{r}
+# Creo un vector que contiene las predicciones para la muestra test
+pred_test <- predict(reg, newdata = datos[test,])
+
+# Calculo el CME Cuadrado medio del error 
+CME.test  = mean((pred_test-datos$Ventas[test])^2)
+CME.test
+
+# Calculo el RCME Raiz Cuadrada del Error Cuadratico Medio 
+RCME.test  = sqrt(CME.test)
+RCME.test
+#Calculamos el sobreajuste
+sobreajuste = RCME.test/RCME.train
+sobreajuste
+sobreajuste<2
+```
+El RCME obtenido fue de 3.85, lo que indica que, en promedio, las predicciones del modelo de regresión lineal difieren en aproximadamente 3.85 miles de dólares respecto a las ventas reales.
+Este valor relativamente bajo muestra que el modelo logra ajustar de manera razonablemente buena los datos observados, aunque siempre existe un margen de error inherente al modelo lineal.
+Por último, calculamos el sobreajuste, el cual no da aproximadamente 1.05, por lo que tomando como métrica indicadora el estándar dado en clase, si: sobreajuste < 2 no es considerable, (o también 1.25). Por ende no hay un sobreajuste relevante.
+
+
+##h) Predecir las ventas de la empresa cuando se invierten 15000 dólares en publicidad en las 
+redes. Comentar la validez de esta predicción. 
+
+```{r}
+nuevos_datos = data.frame(RRSS = 1500)
+
+predict(reg, nuevos_datos)
+```
+
+
+
