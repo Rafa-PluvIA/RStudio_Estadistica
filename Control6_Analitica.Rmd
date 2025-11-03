@@ -61,7 +61,7 @@ train = sample(nrow(datos),nrow(datos)*0.70)
 
 test  =(-train)
 
-modelo=lm(datos$Ventas~datos$RRSS, data= datos, subset=train)
+modelo=lm(Ventas~RRSS, data= datos, subset=train)
 modelo
 plot(datos$RRSS, datos$Ventas,
      col="red",
@@ -153,6 +153,5 @@ predict(reg, newdata=nuevos_datos)
 Ecuacion = 0.7751 + 0.00233*(1500)
 Ecuacion
 ```
-
-
+Cuando se invierte en la tienda online 1500 usd en publicidad se espera un total de ventas por 4.2739 miles de usd.
 
