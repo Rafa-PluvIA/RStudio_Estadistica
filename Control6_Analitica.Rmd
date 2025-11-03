@@ -119,8 +119,7 @@ Por otra parte, el R2 es aproximadamente 0.71, lo que muestra que el 71% de la v
 
 
 
-##g) Determinar la calidad de las predicciones en testing a través del cálculo del RCME. 
-Interpretar el resultado. ¿Hubo sobreajuste? Justificar la respuesta
+##g) Determinar la calidad de las predicciones en testing a través del cálculo del RCME. Interpretar el resultado. ¿Hubo sobreajuste? Justificar la respuesta
 
 ```{r}
 # Creo un vector que contiene las predicciones para la muestra test
@@ -143,13 +142,16 @@ Este valor relativamente bajo muestra que el modelo logra ajustar de manera razo
 Por último, calculamos el sobreajuste, el cual no da aproximadamente 1.05, por lo que tomando como métrica indicadora el estándar dado en clase, si: sobreajuste < 2 no es considerable, (o también 1.25). Por ende no hay un sobreajuste relevante.
 
 
-##h) Predecir las ventas de la empresa cuando se invierten 15000 dólares en publicidad en las 
-redes. Comentar la validez de esta predicción. 
+##h) Predecir las ventas de la empresa cuando se invierten 15000 dólares en publicidad en las redes. Comentar la validez de esta predicción. 
 
 ```{r}
-nuevos_datos = data.frame(RRSS = 1500)
 
-predict(reg, nuevos_datos)
+nuevos_datos = data.frame(RRSS = c(1500))
+
+predict(reg, newdata=nuevos_datos)
+
+Ecuacion = 0.7751 + 0.00233*(1500)
+Ecuacion
 ```
 
 
