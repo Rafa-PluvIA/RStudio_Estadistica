@@ -87,7 +87,7 @@ summary(reg)
   Comparamos con el alpha (nivel de significación 5%) 
 
   Se realiza la decision de las hipotesis. En este caso la decision fue: Rechazar Ho (p-value=1.01e-9) y aceptamos H1
-  Conclusión: "Basándonos en la evidencia de una muestra de entrenamiento de n=33 clientes de la tienda online podemos concluir con un nivel de significación del 5%. (Nivel de confianza de 95%) que hay una relación lineal significativa entre las Ventas y la variable inversion en publicidad (RECHAZAMOS Ho)"
+  Conclusión: "Basándonos en la evidencia de una muestra de entrenamiento de n=33 clientes de la tienda online podemos concluir con un nivel de significación del 5%, (Nivel de confianza de 95%) que hay una relación lineal significativa entre las Ventas y la variable inversión en publicidad (RECHAZAMOS Ho)"
   
 ##e) Interpretar la pendiente de la ecuación del modelo de regresión lineal en el contexto del problema. 
 
