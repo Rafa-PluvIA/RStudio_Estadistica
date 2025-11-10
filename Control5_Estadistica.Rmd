@@ -1,0 +1,64 @@
+---
+title: "Clase 10 TEORICO CLASE 6"
+author: "RAFAEL TRUJILLO - Analitica de Datos "
+date: "18 /09/ 2025"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    highlight: kate
+    code_folding: show
+    
+---
+
+# EJERCICIO 3
+
+## Parte A
+
+a) Es una Variable Aleatoria discreta (Porque solamente puede tomar un conjunto finito de valores)
+
+## Parte B Gráfica de Distribución de probabilidad
+```{r}
+x = seq(2,12,1)
+
+y = c(0.01, 0.01, 0.02, 0.03, 0.04, 0.06, 0.08, 0.10, 0.15, 0.30, 0.20)
+
+plot(x, y, 
+     type="h",
+     lwd=5,
+     col="red",
+     main="Distribución de probaabilidades",
+     xlab="Meses",
+     ylab="Probabilidad de Ventas de autos",
+     sub="Elaboración propia")
+
+
+```
+En la gráfica se observa una asimetría negativa, sesgo izquierdo y esto de muestra que los valores más probables son los mayores. Es decir que es más probable que el desarrollo sean luego de los 10 meses. 
+
+## Parte c  Hallar la MODA de X e indicar su significado en el contexto del problema.
+
+La MODA es 11 meses. Lo más probable es que demoren 11 meses para desarrollar. 
+
+## Parte D . Hallar la función de distribución de probabilidad acumulada F(X).
+
+F(x) = Prob.Acumulada = c(0.01, 0.02, 0.04, 0.07, 0.11, 0.17, 0.25, 0.35, 0.50, 0.80, 1.00)
+
+```{r}
+Prob.Acumulada = c(0.01, 0.02, 0.04, 0.07, 0.11, 0.17, 0.25, 0.35, 0.50, 0.80, 1.00)
+data= data.frame(x,y, Prob.Acumulada)
+```
+
+## Parte E  Hallar la probabilidad de demorar en la investigación más de 6 y menos de 10 meses.
+
+P(X>6 y X<10) = P(7=< x >= 9) = P(x=7) + P(x=8) + P(x=9) = 0.24
+
+## Parte F.   Si ya se demoró 6 meses, halle la probabilidad de demorar menos de 10. 
+
+P(x< 10 meses|x> 6 meses) = P("x<10" interseccion "x>6")/P("x>6") = 0.24/(1-0.11) = 0.2697
+
+## Parte G.  Calcular el valor esperado (μ) de X  
+
