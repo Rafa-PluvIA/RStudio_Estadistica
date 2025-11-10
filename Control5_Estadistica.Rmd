@@ -62,3 +62,22 @@ P(x< 10 meses|x> 6 meses) = P("x<10" interseccion "x>6")/P("x>6") = 0.24/(1-0.11
 
 ## Parte G.  Calcular el valor esperado (μ) de X  
 
+```{r}
+valor.esperado = sum(x*y)
+```
+Se espera que el proyecto se complete en 9.68 meses.
+
+## Parte H. Calcular el Desvío Estándar (σ) de X. 
+
+```{r}
+varianza = sum((x-valor.esperado)**2*y)
+desvio.estandar=sqrt(varianza)
+```
+
+En promedio los datos se desvían 2.279825 meses del valor esperado (9.68)
+
+## Parte I.  ¿Cuál es la probabilidad de que X difiera de μ en menos de una desviación estándar?
+
+P(7.4 < x < 11.95) = P(8 =< x =< 11) = P(x=8)+P(x=9)+P(x=10)+P(x=11) = 0.63
+
+
