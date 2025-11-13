@@ -1,0 +1,110 @@
+---
+title: "Clase 10 TEORICO CLASE 6"
+author: "RAFAEL TRUJILLO - Estadistica 1 "
+date: "18 /09/ 2025"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    highlight: kate
+    code_folding: show
+    
+---
+
+# EJEMPLO 6 Clase 6
+
+ De una determinada empresa se conocen los siguientes datos, referidos al volumen de ventas 
+(miles de U$S) y al gasto en publicidad (miles de U$S) de los últimos 6 años: 
+
+```{r}
+gastos = c(16,32,48,56,64,80)
+ventas = c(100,150,200,220,300,320)
+
+plot(gastos, ventas,
+     col="red",
+     main="Ventas según gastos en publicidad",
+     xlab="Gastos en publicidad (miles USD)",
+     ylab="Ventas en miles de USD")
+```
+##Que indica el diagrama de dispersión?
+Se observa una relación lineal y directa entre los gastos en publicidad y el 
+volumen de ventas. 
+En el rango de valores del estudio,  a medida que aumentan los gastos en 
+publicidad se observa un aumento en las ventas.
+
+
+```{r}
+cov(gastos, ventas)
+```
+La COVARIANZA FUE DE 1896 (miles USD)^2
+Interpretación:  Sxy= 1896 > 0  →relación lineal y directa entre los gastos en publicidad y el volumen de ventas.
+
+```{r}
+cor(gastos, ventas)
+```
+Coef. de Person dio 0.978051
+Interpretación: relación lineal directa y fuerte entre los gastos en publicidad y el volumen de ventas
+
+```{r}
+modelo=lm(ventas~gastos)
+modelo
+```
+  b: 3,627. En promedio, el volumen de ventas aumenta en U$S 3627 por cada U$S 1000 que aumenta la inversión en publicidad de la empresa. 
+  a: 36,041. En promedio, se espera que el volumen de ventas sea de U$S 36041 cuando no se realiza inversión en publicidad (Publicidad = 0)
+
+```{r}
+plot(gastos, ventas,
+     col="red",
+     main="Ventas según gastos en publicidad",
+     xlab="Gastos en publicidad (miles USD)",
+     ylab="Ventas en miles de USD")
+
+abline(modelo, col="red", lwd=2)
+```
+
+```{r}
+cor(gastos,ventas)^2
+```
+Coeficiente de determinación = 0,9566 o 95,66%
+Interpretación:   
+ El modelo tiene un buen ajuste  a los datos. 
+• El 95,66% de la variación observada en el volumen de ventas se explica por la variación en los gastos en publicidad.
+ • El restante 4,34%  lo explican otras variables. 
+ 
+##Que volumen de ventas de la empresa se prodia esperar en un año que se gaste de publicidad?
+
+Si gasto 60 mil USD, tengo unas ventaas de 253,661 miles de USD
+```{r}
+36.041+3.627*(60)
+```
+
+Si gasto 20 mil USD
+```{r}
+36.041+3.627*(20)
+```
+Si gasto 150 mil USD (El modelo solo se ajusta dentro del rango de estudio, en tanto este resultado no es valido)
+```{r}
+36.041+3.627*(150)
+```
+Hay que tener cuidado cuando se hace un estudio fuera del rango de estudio.
+Es debido a el valor de 150 mil UD se encuentra fuera del rango de estudio. Es riesgoso predecir fuera del rango.
+
+
+Para agregar excel al RMarkdown se necesita una libreria
+
+chunck
+install.packages("readxl")
+
+```{r}
+install.packages("readxl")
+```
+
+```{r}
+library(readxl)
+datos = read_excel("\Users\r1210\Downloads\editorial.csv")
+```
+
+

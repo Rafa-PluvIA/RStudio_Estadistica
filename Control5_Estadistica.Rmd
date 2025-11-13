@@ -14,7 +14,7 @@ output:
     
 ---
 
-# EJERCICIO 3
+# práctico 7 EJERCICIO 3
 
 ## Parte A
 
@@ -80,4 +80,55 @@ En promedio los datos se desvían 2.279825 meses del valor esperado (9.68)
 
 P(7.4 < x < 11.95) = P(8 =< x =< 11) = P(x=8)+P(x=9)+P(x=10)+P(x=11) = 0.63
 
+
+# CLASE 10 EJERCICIO 3
+
+La noche del 24 de agosto se ha convertido en el evento uruguayo de 
+mayor convocatoria en cuanto a salidas nocturnas se refiere. Mediante 
+la Ley No. 17.825 este evento fue denominado en forma oficial “Noche 
+de la Nostalgia” y es promocionando en el exterior del país a través de 
+Embajadas, Consulados y oficinas comerciales.  Sin embargo, no todo 
+son buenas canciones y bailes hasta el amanecer. La excesiva ingesta 
+de bebidas alcohólicas provoca accidentes de tránsito que el Estado 
+trata de evitar. Autoridades municipales y policiales declararon que 
+este año se registró un 2,1% de espirometrías de alcohol positivas (+).
+
+## Parte A) 
+Sobre una muestra aleatoria de 100 conductores, ¿cuál es la 
+probabilidad de que al menos uno haya registrado una prueba +?
+
+```{r}
+1-pbinom(0,100,0.021)
+1-dbinom(0,100,0.021) #dan lo mismo y tiene sentido, porque al ser el 0 el único caso que no me sirve, no se llega a acumular probabilidad.
+```
+La probabilidad de que al menos uno haya registrado una prueba positiva (+) es del 88.03%
+
+## Parte B)
+¿Qué supuestos se deben realizar para calcular la probabilidad 
+anterior?
+
+-Cada prueba tiene solo dos resutados posibles: positivo y negativo.
+- Resultados Independientes
+- La proababilidades de éxito se mantienen constantes en cad prueba
+- Las n pruebas (en este caso 100) son idénticas, es decir se hacen bajo las mismas condiciones.
+
+
+
+## Parte C)
+Sobre una muestra aleatoria de 100 conductores, calcular la 
+probabilidad de que menos de 4 hayan tenido una prueba +
+```{r}
+pbinom(3, 100, 0.021)
+```
+La probabilidad de que menos de 4 hayan tenido una prueba positiva (+) es del 84.05%
+
+## Parte D) Grafica la función de cuantía para una muestra de 100 
+conductores.
+
+```{r}
+x = 0:100
+y = dbinom(x, 100, 0.021)
+
+plot(x, y, col = "green", main = "Funcion de cuantia para 100 conductores", sub = "Elaboración propia", lwd=8, type = "h")
+```
 

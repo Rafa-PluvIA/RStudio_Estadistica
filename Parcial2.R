@@ -9,7 +9,7 @@ Metodos_Formacion <- 5
 Competencia <- 3
 
 Chi_Cuadrado <- 18.6743
-V_Cramer <- sqrt(Chi_Cuadrado/n*(min(Metodos_Formacion, Competencia)-1))
+V_Cramer <- sqrt(Chi_Cuadrado/(n*(min(Metodos_Formacion, Competencia)-1)))
 V_Cramer
 
 #Interpretación
