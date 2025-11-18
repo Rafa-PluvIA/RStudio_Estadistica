@@ -1,0 +1,36 @@
+---
+title: "Proyecto Final"
+author: "PAULA ADJEMIAN, GERMAN ADJEMIAN Y RAFAEL TRUJILLO - Analitica de Datos "
+date: "18/ 11/ 2025"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    highlight: kate
+    code_folding: show
+    
+---
+
+# Proyecto Final 2 Semestre 2025
+
+La base de datos PrestamosUY.xlsx recopila información proveniente de una empresa financiera uruguaya. Contiene registros correspondientes a una muestra de préstamos personales otorgados por dicha institución. Para cada préstamo se relevaron diversas variables cuantitativas y cualitativas vinculadas a las características del cliente, las condiciones del crédito y el comportamiento de pago: 
+
+  • ID. Identificador del titular del préstamo. 
+  • Ingreso. Ingreso anual (dólares) del titular del préstamo. 
+  • Disponible. Línea de crédito disponible (dólares) luego de efectuado el préstamo. 
+  • Importe. Importe en dólares del préstamo personal otorgado. 
+  • Sexo. Sexo del titular: 1-Hombre y 2-Mujer. 
+  • Educacion. Máximo nivel de estudios del titular: 1-Universidad, 2-Secundaria, 3 Primaria, 4-Otra.  
+  • Estado_Civil. Estado civil del titular: 1-Casado/Unión libre,  2 Soltero/Divorciado/Viudo. 
+  • Edad: Edad en años del titular al momento de sacar el préstamo.   
+  • Default: Incumplimiento de pagos (default): 1-Default y 0-No default. 
+
+Esta base de datos será empleada para el desarrollo de modelos de machine learning de regresión lineal y clasificación, con el objetivo de identificar los factores que determinan el monto de los préstamos y estimar la probabilidad de incumplimiento de pago por parte de los clientes. 
+
+```{r}
+library(readxl)
+datos = read_excel("PrestamosUY.xlsx")
+```
