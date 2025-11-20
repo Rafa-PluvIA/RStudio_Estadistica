@@ -39,6 +39,15 @@ datos = read_excel("PrestamosUY.xlsx")
 
 
 
+PUSE ESTO DE DUMMYS ACA PORQUE LO NECESITO PARA EMPEZAR MI PARTE PERO PONGAN LO CUANDO LO USEN DEONDE IRIA. QUE CREO QUE SERIA EN LA DIVISION 2 (LA TUYA PAULA CREO)
+
+```{r}
+
+PrestamosUY$Sexo_dummy <- as.factor(PrestamosUY$Sexo)
+PrestamosUY$Educacion_dummy <- as.factor(PrestamosUY$Educacion)
+PrestamosUY$Estado_Civil_dummy <- as.factor(PrestamosUY$Estado_Civil)
+
+```
 
 
 
@@ -57,14 +66,19 @@ library(rpart)
 library(rattle)
 
 set.seed(1111)   
-train <- sample(nrow(PrestamosUY), nrow(PrestamosUY)*0.5) 
+train <- sample(nrow(PrestamosUY), nrow(PrestamosUY)*0.7) 
 test <- (-train)
 
-# Arbol de clasificacion con la base de training (falta completar)
+# Arbol de clasificacion con la base de training (falta completar, hay que poner las variables dummy)
 par(mfrow = c(1, 1))
-Arbol1 = rpart(default ~ Ingresos + Disponible + Importe ,
-               Default[train,], method = 'class')
+Arbol1 = rpart(Default ~ Ingreso + Disponible + Importe + Edad + Sexo_dummy + Educacion_dummy + Estado_Civil_dummy,
+               PrestamosUY[train,], method = 'class')
+
+#PREGUNTAR: PUEDE SER QUE NO NOS ESTE DANDO LAS VARIABLES DUMMIES, como que no las toma.
 
 Arbol1
+
+fancyRpartPlot(Arbol1)
+
 ```
 
