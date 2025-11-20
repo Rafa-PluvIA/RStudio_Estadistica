@@ -34,3 +34,28 @@ Esta base de datos será empleada para el desarrollo de modelos de machine learn
 library(readxl)
 datos = read_excel("PrestamosUY.xlsx")
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Parte 2: Elaborar un modelo de árbol de clasificación que sirva para predecir cuándo hay un incumplimiento de pagos (Default). 
+
+```{r}
+library(tree)
+library(rio) 
+library(rpart)
+library(rattle)
+
+
+```
+
