@@ -56,6 +56,15 @@ library(rio)
 library(rpart)
 library(rattle)
 
+set.seed(1111)   
+train <- sample(nrow(PrestamosUY), nrow(PrestamosUY)*0.5) 
+test <- (-train)
 
+# Arbol de clasificacion con la base de training (falta completar)
+par(mfrow = c(1, 1))
+Arbol1 = rpart(default ~ Ingresos + Disponible + Importe ,
+               Default[train,], method = 'class')
+
+Arbol1
 ```
 
