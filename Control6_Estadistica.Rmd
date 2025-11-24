@@ -1,0 +1,48 @@
+---
+title: "Control 5 Estadistica 1"
+author: "PAULA ADJEMIAN, GERMAN ADJEMIAN Y RAFAEL TRUJILLO"
+date: "14 /11/ 2025"
+output: 
+  html_document:
+    theme: journal
+    toc: true
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    highlight: kate
+    code_folding: show
+    
+---
+#Ejercicio 6 de Clase 11
+
+Los pasajeros de una línea aérea llegan al azar y de manera independiente a la instalación de controles de seguridad en un aeropuerto internacional. La razón media de llegadas es de 8 personas por minuto.
+ 
+## a) Calcule la probabilidad de que no haya llegadas en un periodo de 1 minuto.
+```{r}
+dpois(0, 8)
+```
+
+## b) Determine la probabilidad de que cuatro pasajeros o menos lleguen en un periodo de dos minutos.
+2 minutos -> 16 pasajeros
+P(X<=4) = 0.0004004
+```{r}
+ppois(4,16)
+```
+## c) Calcule la probabilidad de que no haya llegadas en un periodo de 20 segundos.
+20 segundos (20/60) -> 0.3 
+20 segundos -> 8*0.3/1 = 2.4 pasajeros
+
+P(X=0) en 20 segundos = 0.0907
+
+```{r}
+dpois(0,2.4)
+```
+## d) Calcule la probabilidad de que lleguen al menos tres pasajeros en un periodo de 40 segundos.
+40 segundos (40/60) -> 0.7
+40 segundos -> 5.28 pasajeros
+
+P(X>= 3) = 0.8970
+
+```{r}
+1-ppois(2, 5.28)
+```
