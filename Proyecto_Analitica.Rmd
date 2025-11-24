@@ -80,5 +80,7 @@ Arbol1
 
 fancyRpartPlot(Arbol1)
 
+plotcp(Arbol1)
+
 ```
 
