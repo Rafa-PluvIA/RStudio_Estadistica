@@ -1,7 +1,7 @@
 ---
-title: "Control 5 Estadistica 1"
+title: "Control 6 Estadistica 1"
 author: "PAULA ADJEMIAN, GERMAN ADJEMIAN Y RAFAEL TRUJILLO"
-date: "14 /11/ 2025"
+date: "24 /11/ 2025"
 output: 
   html_document:
     theme: journal
@@ -41,7 +41,7 @@ dpois(0,2.4)
 40 segundos (40/60) -> 0.7
 40 segundos -> 5.28 pasajeros
 
-P(X>= 3) = 0.8970
+P(X>= 3) en 40 segundos = 0.8970
 
 ```{r}
 1-ppois(2, 5.28)
