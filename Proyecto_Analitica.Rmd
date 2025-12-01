@@ -36,7 +36,7 @@ datos = read_excel("PrestamosUY.xlsx")
 ```
 
 
-
+PARA ARMAR EL MODELO UTILIZAR EN VEZ DE FORWARD LA VERSON MIXTA
 
 
 PUSE ESTO DE DUMMYS ACA PORQUE LO NECESITO PARA EMPEZAR MI PARTE PERO PONGAN LO CUANDO LO USEN DEONDE IRIA. QUE CREO QUE SERIA EN LA DIVISION 2 (LA TUYA PAULA CREO)
@@ -83,4 +83,24 @@ fancyRpartPlot(Arbol1)
 plotcp(Arbol1)
 
 ```
-
+El nodo raíz y este es el 100% de los datos de TRAIN. 
+    El 0.82 es la proporción del nodo en NO DEFAULT y el restante 0.18 es la proporción de SI DEFAULT
+    Además nos muestra la moda del nodo y este es NO DEFAULT.
+Reglas de decisión:
+  
+  PRIMERA REGLA:  
+    En este caso si el importe en dólares del préstamos >= 16000.
+      En 89% de los datos de TRAIN esta en el NODO 2, con una proporción de NO DEFAULT de 91% y una proporción de 9% SI DEFAULT.
+    En el caso de que este importe sea > 16000
+      El 11% de los datos de TRAIN esta en el NODO 3, lo cual predice SI DEFAULT. Con una proporción de SI DEFAULT de 100% y 0% en NO DEFAULT.
+  
+  SEGUNDA REGLA       
+    En el caso de que el ingreso anual del titular sea >= 15000 y el importe del prestamo >= 16000
+      El 88% de los datos de TRAIN esta en el NODO 4, predice NO DEFAULT y con una proporción de NO DEFAULT de 93% mientras que SI DEFAULT 7%.
+    Mientras que en el caso del ingreso anual del titular sea < 15000 y el importe del prestamos >= 16000.
+      El 1% de los datos de TRAIN esta en el NODO TERMINAL 5, predice SI DEFAULT y con una proporción de 100% SI DEFAULT.
+  
+  TERCERA REGLA
+    En el caso de que la linea de crédito disponible sea < 74000, el ingreso anual del titular sea >= 15000 y el importe del prestamo >= 16000.
+      El 77% de los datos de TRAAIN esta en el NODO TERMINAL 8, predice NO DEFAULT, con una proporción de 95% NO DEFAULT y 5% en SI DEFAULT. 
+    
