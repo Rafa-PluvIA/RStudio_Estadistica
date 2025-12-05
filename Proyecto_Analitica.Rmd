@@ -408,12 +408,9 @@ set.seed(54039598)
 train <- sample(nrow(datos), nrow(datos)*0.6) 
 test <- (-train)
 
-# Arbol de clasificacion con la base de training (falta completar, hay que poner las variables dummy)
 par(mfrow = c(1, 1))
-Arbol1 = rpart(Default ~ Ingreso + Disponible + Importe + Edad + Sexo_dummy + Educacion_dummy + Estado_Civil_dummy,
+Arbol1 = rpart(Default ~ Ingreso + Disponible + Importe + Edad + Sexo + Educacion + Estado_Civil,
                datos[train,], method = 'class')
-
-#PREGUNTAR: PUEDE SER QUE NO NOS ESTE DANDO LAS VARIABLES DUMMIES, como que no las toma.
 
 Arbol1
 
@@ -535,5 +532,6 @@ Educación: Secundaria
 Estado civil: Soltero 
 Edad: 29 años  
 Default: No
+
 
 Al observar el árbol podado, el mismo siguiendo las reglas de este, se predice que es DEFAULT. Por lo tanto en este caso la prediccion fue erronea.
